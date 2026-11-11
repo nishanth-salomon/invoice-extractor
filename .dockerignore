@@ -1,0 +1,8 @@
+demo
+out
+tests
+samples/corpus
+**/__pycache__
+.pytest_cache
+*.env
+.env

@@ -1,0 +1,114 @@
+{
+ "01_acme_clean.pdf": {
+  "expected_status": "approved",
+  "why": "clean baseline",
+  "vendor": "Acme Web Services Ltd",
+  "invoice_number": "INV-2026-0412",
+  "total": "1100.52",
+  "currency": "USD"
+ },
+ "02_nordlicht_eu.pdf": {
+  "expected_status": "approved",
+  "why": "EUR, decimal comma, dotted dates, VAT",
+  "vendor": "Nordlicht Software GmbH",
+  "invoice_number": "RE-88213",
+  "total": "4035.77",
+  "currency": "EUR"
+ },
+ "03_bluepeak_multipage.pdf": {
+  "expected_status": "approved",
+  "why": "60 line items over two pages with a repeated header",
+  "vendor": "BluePeak Industrial Supply Inc",
+  "invoice_number": "BP-5521",
+  "total": "6925.58",
+  "currency": "USD"
+ },
+ "04_harbor_discount.pdf": {
+  "expected_status": "approved",
+  "why": "discount line, INR, GST",
+  "vendor": "Harbor Logistics Pvt Ltd",
+  "invoice_number": "HL/26/0099",
+  "total": "39058.00",
+  "currency": "INR"
+ },
+ "05_cedar_vat.pdf": {
+  "expected_status": "approved",
+  "why": "GBP, VAT 20%",
+  "vendor": "Cedar & Pine Design Ltd",
+  "invoice_number": "CP-1077",
+  "total": "924.00",
+  "currency": "GBP"
+ },
+ "06_acme_math_error.pdf": {
+  "expected_status": "needs_review",
+  "why": "printed total is 90.00 too high",
+  "vendor": "Acme Web Services Ltd",
+  "invoice_number": "INV-2026-0430",
+  "total": "1190.52",
+  "currency": "USD"
+ },
+ "07_missing_number.pdf": {
+  "expected_status": "needs_review",
+  "why": "no invoice number printed",
+  "vendor": "Acme Web Services Ltd",
+  "invoice_number": null,
+  "total": "886.68",
+  "currency": "USD"
+ },
+ "08_ambiguous_date.pdf": {
+  "expected_status": "needs_review",
+  "why": "03/04/2026 could be 3 April or 4 March",
+  "vendor": "Cedar & Pine Design Ltd",
+  "invoice_number": "CP-1099",
+  "total": "312.00",
+  "currency": "GBP"
+ },
+ "09_acme_exact_duplicate.pdf": {
+  "expected_status": "duplicate",
+  "why": "byte-identical resend of 01",
+  "vendor": "Acme Web Services Ltd",
+  "invoice_number": "INV-2026-0412",
+  "total": "1100.52",
+  "currency": "USD"
+ },
+ "10_acme_near_duplicate.pdf": {
+  "expected_status": "needs_review",
+  "why": "same vendor and amount, invoice number differs by one digit",
+  "vendor": "Acme Web Services Ltd",
+  "invoice_number": "INV-2026-0413",
+  "total": "1100.52",
+  "currency": "USD"
+ },
+ "11_bluepeak_bank_change.pdf": {
+  "expected_status": "needs_review",
+  "why": "bank account differs from the one on file",
+  "vendor": "BluePeak Industrial Supply Inc",
+  "invoice_number": "BP-5560",
+  "total": "246.10",
+  "currency": "USD"
+ },
+ "12_zenith_round_new_vendor.pdf": {
+  "expected_status": "needs_review",
+  "why": "new vendor and a round 5,000.00 total",
+  "vendor": "Zenith Consulting LLC",
+  "invoice_number": "ZC-0001",
+  "total": "5000.00",
+  "currency": "USD"
+ },
+ "13_harbor_scan_only.pdf": {
+  "expected_status": "needs_review",
+  "why": "image-only scan: no text layer to verify against",
+  "vendor": "Harbor Logistics Pvt Ltd",
+  "invoice_number": "HL/26/0102",
+  "total": "19588.00",
+  "currency": "INR"
+ },
+ "14_cedar_due_before_date.pdf": {
+  "expected_status": "needs_review",
+  "why": "due date earlier than invoice date",
+  "vendor": "Cedar & Pine Design Ltd",
+  "invoice_number": "CP-1101",
+  "total": "270.00",
+  "currency": "GBP"
+ }
+}

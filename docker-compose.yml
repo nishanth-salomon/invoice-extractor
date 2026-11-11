@@ -1,0 +1,17 @@
+# docker compose up -d --build        then:  curl -s localhost:8000/health
+# curl -s -X POST localhost:8000/invoices -F "file=@invoice.pdf"        (returns approved | needs_review | duplicate + every gate that fired)
+# Default reader is the free rule-based text-layer reader (digital PDFs). For Claude vision on scans:
+#   INVOICEFLOW_LLM=claude ANTHROPIC_API_KEY=... docker compose up -d      (costs money per invoice)
+# Set INVOICEFLOW_API_TOKEN to require "Authorization: Bearer <token>". State (ledger, vendors, audit log) lives in the invoiceflow_data volume.
+services:
+  invoiceflow:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    environment:
+      INVOICEFLOW_LLM: ${INVOICEFLOW_LLM:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      INVOICEFLOW_API_TOKEN: ${INVOICEFLOW_API_TOKEN:-}
+    volumes: ["invoiceflow_data:/data"]
+    restart: unless-stopped
+volumes:
+  invoiceflow_data:
